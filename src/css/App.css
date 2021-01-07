@@ -1,0 +1,18 @@
+.container{
+  border : 5px solid red;
+  margin : 5px;
+  padding : 5px;
+}
+input{
+  width :300px;
+}
+.logout{
+  position: absolute;
+  top: 10px;
+  right : 150px;
+  cursor: pointer;
+  user-select: none;
+}
+.logout:hover{
+  text-decoration: underline;
+}

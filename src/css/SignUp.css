@@ -19,19 +19,39 @@
   font-weight: bold;
   padding : 20px 0 30px 0;
 }
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .closeBtn{
   position: absolute;
-  top : 10px;
-  right : 30px;
+  top : 20px;
+  right : 35px;
   cursor: pointer;
 }
 .closeBtn:hover{
   transform: scale(1.1);
   text-decoration: underline;
 }
+.id-div{
+  display: flex;
+  align-items: center;
+}
+#signUpId{
+  width : 230px;
+}
+.id-div button{
+  height: 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+}
 #signUpBtn {
   width : 100px;
   cursor: pointer;
   outline: none;
   background-color: #fcffe2;
+  border-radius: 30px;
 }

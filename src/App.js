@@ -5,33 +5,48 @@ import "./css/App.css";
 
 function App() {
 
-  let [id, setId] = useState();
-  let [pw, setPw] = useState();
   let [login, setLogin] = useState();
   let [signUp, setSignUp] = useState();
 
-  const singUpId = (e) => {
-    setId(e.target.value);
+  const [users, setUsers] = useState([]);
+
+  const [inputs, setInputs] = useState({
+    id: "",
+    pw: "",
+  });
+
+  const onChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
   };
-  const singUpPw = (e) => {
-    setPw(e.target.value);
+  const onCreate = () => {
+    const user = {
+      userNum: users.length + 1,
+      id: inputs.id,
+      pw: inputs.pw,
+
+    };
+    setUsers([...users, user]);
   };
-  
+
   if (!login) {
     return (
       <div className="App">
         <LoginComp
           login={setLogin}
           signUp={setSignUp}
-          id={id}
-          pw={pw}>
+          users={users}>
         </LoginComp>
         {signUp === true && (
           <SignUp
-            id={id}
-            pw={pw}
-            setId={singUpId}
-            setPw={singUpPw}
+            onChange={onChange}
+            onCreate={onCreate}
+            users = {users}
+            inputs={inputs}
             signUp={setSignUp}>
           </SignUp>
         )}
@@ -41,7 +56,7 @@ function App() {
     return (
       <div className="container">
         <h1>Welcome to React!</h1>
-        <h1 className ="logout" onClick = {() =>{
+        <h1 className="logout" onClick={() => {
           setLogin(false)
         }}>logout</h1>
         <FuncComp initNumber={2}></FuncComp>

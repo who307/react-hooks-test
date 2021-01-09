@@ -49,11 +49,11 @@ export default function ToDoList() {
         <form action="">
           <input id = "toDo"type="text" onChange={getValue} />
           <button onClick={listAdd}>할일 추가</button>
-          <ul>
+          <ol>
             <li>
               {toDoList}
             </li>
-          </ul>
+          </ol>
         </form>
       </div>
       </div>

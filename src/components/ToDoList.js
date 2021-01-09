@@ -34,8 +34,16 @@ export default function ToDoList() {
     _useRef.current.style = ("width : 300px; height : 100px; background-color : blue; color : white;");
   }
 
+  let toDo = useRef();
+
+  const reDesign = () => {
+    toDo.current.style = ("display : flex; justify-content : center; flex-direction : row; algin-item : center");
+  };
+
   return (
-    <div className="toDoList">
+    <div className="toDoList" ref = {toDo}>
+      <button onClick = {reDesign} style = {{position : "relative"}}>디자인 변경</button>
+      <div style = {{textAlign : "center"}}>
       <h2>TODO LIST</h2>
       <div className="form-div">
         <form action="">
@@ -48,7 +56,8 @@ export default function ToDoList() {
           </ul>
         </form>
       </div>
-      <div className="useEffectDiv" ref={_useRef} style={{ width: "300px", height: "100px", backgroundColor: "lightblue" }}>
+      </div>
+      <div className="useEffectDiv" ref= {_useRef} style={{ width: "300px", height: "100px", backgroundColor: "lightblue" }}>
 
       </div>
       <div style={{ width: "400px", margin: "20px", display: "flex", justifyContent: "space-around" }}>

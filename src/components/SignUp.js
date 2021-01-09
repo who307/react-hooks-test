@@ -31,7 +31,6 @@ export default function SignUp(props) {
       alert("사용가능한 아이디입니다.")
       overLap = "사용가능";
       console.log(overLap)
-      console.log(props.inputs.pw, conPw)
     }
   }
   const signUpChecked = (e) => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginComp from "./components/LoginComp";
 import SignUp from "./components/SignUp";
+import ToDoList from "./components/ToDoList";
 import "./css/App.css";
 
 function App() {
@@ -39,16 +40,15 @@ function App() {
         <LoginComp
           login={setLogin}
           signUp={setSignUp}
-          users={users}>
-        </LoginComp>
+          users={users} />
+
         {signUp === true && (
           <SignUp
             onChange={onChange}
             onCreate={onCreate}
-            users = {users}
+            users={users}
             inputs={inputs}
-            signUp={setSignUp}>
-          </SignUp>
+            signUp={setSignUp}/>
         )}
       </div>
     )
@@ -59,8 +59,9 @@ function App() {
         <h1 className="logout" onClick={() => {
           setLogin(false)
         }}>logout</h1>
-        <FuncComp initNumber={2}></FuncComp>
-        <ClassComp initNumber={2}></ClassComp>
+        <FuncComp initNumber={2}/>
+        <ClassComp initNumber={2}/>
+        <ToDoList/>
       </div>
     );
   }

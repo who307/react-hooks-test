@@ -80,7 +80,7 @@ function FuncComp(props) {
     <div className="container">
       <h2>function style Component</h2>
       <p>Number : {number}</p>
-      <p>Number : {_date}</p>
+      <p>Date : {_date}</p>
       <input type="button" value="random" onClick={
         function () {
           setNumber(Math.ceil(Math.random() * 100));

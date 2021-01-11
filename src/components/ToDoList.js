@@ -34,35 +34,41 @@ export default function ToDoList() {
     _useRef.current.style = ("width : 300px; height : 100px; background-color : blue; color : white;");
   }
 
-  let toDo = useRef();
-
-  const reDesign = () => {
-    toDo.current.style = ("display : flex; justify-content : center; flex-direction : row; algin-item : center");
-  };
+  let reDesign = useRef();
+  let changeCheck;
+  const designChange = () => {
+    if(!changeCheck){
+      changeCheck = true;
+      reDesign.current.style = ("display : flex; justify-content : center; flex-direction : row; algin-item : center");
+  }else{
+    reDesign.current.style = ("display : flex; justify-content : center; flex-direction : column; algin-item : center");
+    changeCheck = false;
+  }
+};
 
   return (
-    <div className="toDoList" ref = {toDo}>
-      <button onClick = {reDesign} style = {{position : "relative"}}>디자인 변경</button>
-      <div style = {{textAlign : "center"}}>
-      <h2>TODO LIST</h2>
-      <div className="form-div">
-        <form action="">
-          <input id = "toDo"type="text" onChange={getValue} />
-          <button onClick={listAdd}>할일 추가</button>
-          <ul>
-            <li>
-              {toDoList}
-            </li>
-          </ul>
-        </form>
+    <div className="toDoList" ref={reDesign}>
+      <button onClick={designChange} style={{ position: "relative" }}>useRef 디자인 변경</button>
+      <div style={{ textAlign: "center" }}>
+        <h2>TODO LIST</h2>
+        <div className="form-div">
+          <form action="">
+            <input id="toDo" type="text" onChange={getValue} />
+            <button onClick={listAdd}>할일 추가</button>
+            <ul>
+              <li>
+                {toDoList}
+              </li>
+            </ul>
+          </form>
+        </div>
       </div>
-      </div>
-      <div className="useEffectDiv" ref= {_useRef} style={{ width: "300px", height: "100px", backgroundColor: "lightblue" }}>
+      <div className="useEffectDiv" ref={_useRef} style={{ width: "300px", height: "100px", backgroundColor: "lightblue" }}>
 
       </div>
       <div style={{ width: "400px", margin: "20px", display: "flex", justifyContent: "space-around" }}>
-        <button style={{ cursor: "pointer" }} onClick={useRefController}>useRef로 div태그 컨트롤</button>
-        <button style={{ cursor: "pointer" }} onClick={useRefController1}>useRef로 div태그 컨트롤</button>
+        <button style={{ cursor: "pointer" }} onClick={useRefController}>useRef 컨트롤</button>
+        <button style={{ cursor: "pointer" }} onClick={useRefController1}>useRef 컨트롤</button>
       </div>
     </div>
   )

@@ -5,50 +5,34 @@ import ToDoList from "./components/ToDoList";
 import "./css/App.css";
 
 function App() {
+  // 로그인창 온오프
+  let [login, setLogin] = useState(false);
 
-  let [login, setLogin] = useState();
-  let [signUp, setSignUp] = useState();
+  // 회원가입창 온오프
+  let [signUp, setSignUp] = useState(false);
 
+  // 회원가입시 입력한 데이터 객체 배열
   const [users, setUsers] = useState([]);
 
-  const [inputs, setInputs] = useState({
-    id: "",
-    pw: "",
-  });
+  // 로그인된 회원아이디 데이터 가져오기
+  let [loginData, setLoginData] = useState();
 
-  const onChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value
-    });
-  };
-  const onCreate = () => {
-    const user = {
-      userNum: users.length + 1,
-      id: inputs.id,
-      pw: inputs.pw,
-
-    };
-    setUsers([...users, user]);
-  };
 
   if (!login) {
     return (
       <div className="App">
         <LoginComp
-          login={setLogin}
-          signUp={setSignUp}
-          users={users} />
+          loginOpen={setLogin}
+          signUpOpen={setSignUp}
+          users={users}
+          setLoginData={setLoginData} />
 
         {signUp === true && (
           <SignUp
-            onChange={onChange}
-            onCreate={onCreate}
+            setUsers={setUsers}
             users={users}
-            inputs={inputs}
-            signUp={setSignUp}/>
+            signUpOpen={setSignUp}
+          />
         )}
       </div>
     )
@@ -56,12 +40,16 @@ function App() {
     return (
       <div className="container">
         <h1>Welcome to React!</h1>
-        <h1 className="logout" onClick={() => {
-          setLogin(false)
-        }}>logout</h1>
-        <FuncComp initNumber={2}/>
-        <ClassComp initNumber={2}/>
-        <ToDoList/>
+
+        <div className="loginData">
+          <span>ID : {loginData} </span>
+          <span className="logoutText" onClick={() => {
+            setLogin(false)
+          }}>Logout</span>
+        </div>
+        <FuncComp initNumber={2} />
+        <ClassComp initNumber={2} />
+        <ToDoList />
       </div>
     );
   }

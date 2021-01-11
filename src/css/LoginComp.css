@@ -42,7 +42,7 @@ input {
   
 }
 #btn{
-  width : 30%;
+  width : 80px;
   cursor: pointer;
   background-color :#fcffe2;
   outline: none;

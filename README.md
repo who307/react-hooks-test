@@ -1,6 +1,6 @@
 ## react 함수형과 클래스형 컴포넌트 연습 <br> https://who307.github.io/react-hooks-test/index.html
 ### 2021-01-09
-1. App컴포넌트에서 유저정보를 props로 전달받아 배열Api map()으로 로그인시 입력한 아이디 값과 같은 아이디를 도출해 배열로 만들고 join()으로 문자열로 변경 후 그 값을 App컴포넌트의 useState()의 값으로 변경해서 로그인 정보(ID) 화면표시
+1. App컴포넌트에서 유저정보를 props로 전달받아 배열Api map()으로 로그인시 입력한 아이디 값과 같은 아이디를 도출해 배열로 만들고 join()으로 문자열로 변경 후 그 값을 App컴포넌트의 로그인정보 useState()의 값으로 변경해서 화면표시
 ### 2021-01-09
 1. useState()와 배열Api map()을 활용해 ToDoList를 생성
 2. useEffect()를 활용(상태값 변환시 리렌더링 기능)해 ToDoList에 배열이 추가되면  카운트가 1씩 증가

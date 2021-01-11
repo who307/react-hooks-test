@@ -48,7 +48,7 @@ export default function ToDoList() {
 
   return (
     <div className="toDoList" ref={reDesign}>
-      <button onClick={designChange} style={{ position: "relative", cursor: "pointer" }}>useRef 디자인 변경</button>
+      <button onClick={designChange} style={{ position: "relative", cursor : "pointer" }}>useRef 디자인 변경</button>
       <div style={{ textAlign: "center" }}>
         <h2>TODO LIST</h2>
         <div className="form-div">
